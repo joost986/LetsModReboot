@@ -1,5 +1,6 @@
 package com.joost986.letsmodreboot;
 
+import com.joost986.letsmodreboot.configuration.ConfigurationHandler;
 import com.joost986.letsmodreboot.proxy.IProxy;
 import com.joost986.letsmodreboot.reference.Reference;
 import cpw.mods.fml.common.Mod;
@@ -24,7 +25,7 @@ public class LetsModReboot
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-
+		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 	}
 
 	@Mod.EventHandler
