@@ -1,8 +1,10 @@
 package com.joost986.letsmodreboot;
 
-import com.joost986.letsmodreboot.configuration.ConfigurationHandler;
+import com.joost986.letsmodreboot.handler.ConfigurationHandler;
 import com.joost986.letsmodreboot.proxy.IProxy;
 import com.joost986.letsmodreboot.reference.Reference;
+import com.joost986.letsmodreboot.utility.LogHelper;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -13,6 +15,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 		modid = Reference.MOD_ID
 		, name = Reference.MOD_NAME
 		, version = Reference.MOD_VERSION
+		, guiFactory = Reference.GUI_FACTORY_CLASS
 )
 public class LetsModReboot
 {
@@ -26,17 +29,22 @@ public class LetsModReboot
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+		FMLCommonHandler.instance().bus().register(ConfigurationHandler.INSTANCE);
+
+		LogHelper.info("Pre initialisation complete");
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event)
 	{
 
+		LogHelper.info("Initialisation complete");
 	}
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event)
 	{
 
+		LogHelper.info("Post initialisation complete");
 	}
 }

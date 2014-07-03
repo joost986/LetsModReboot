@@ -17,12 +17,12 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.2-0.1.1"
+version = "1.7.10-0.1.1"
 group= "com.joost986.letsmodreboot" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "letsmodreboot"
 
 minecraft {
-    version = "1.7.2-10.12.2.1127"
+    version = "1.7.2-10.12.2.1147"
     assetDir = "eclipse/assets"
 
 //    replaceIn "reference/reference.java"

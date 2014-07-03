@@ -8,4 +8,6 @@ public class Reference
 
 	public static final String CLIENT_PROXY_CLASS = "com.joost986.letsmodreboot.proxy.ClientProxy";
 	public static final String SERVER_PROXY_CLASS = "com.joost986.letsmodreboot.proxy.ServerProxy";
+
+	public static final String GUI_FACTORY_CLASS = "com.joost986.letsmodreboot.client.gui.GuiFactory";
 }
