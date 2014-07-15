@@ -1,7 +1,6 @@
 package com.joost986.letsmodreboot.handler;
 
 import com.joost986.letsmodreboot.reference.Reference;
-import com.joost986.letsmodreboot.utility.LogHelper;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
@@ -10,38 +9,35 @@ import java.io.File;
 
 public class ConfigurationHandler
 {
-	public static final ConfigurationHandler INSTANCE = new ConfigurationHandler();
-	public static Configuration configuration;
+    public static Configuration configuration;
+    public static boolean testValue = false;
 
-	public static boolean exampleConfigValue = false;
+    public static void init(File configFile)
+    {
+        // Create the configuration object from the given configuration file
+        if (configuration == null)
+        {
+            configuration = new Configuration(configFile);
+            loadConfiguration();
+        }
+    }
 
-	public static void init (File configFile)
-	{
-		// create config object
-		if (configuration == null)
-		{
-			configuration = new Configuration(configFile);
-			INSTANCE.loadConfiguration();
-		}
-	}
+    private static void loadConfiguration()
+    {
+        testValue = configuration.getBoolean("configValue", Configuration.CATEGORY_GENERAL, false, "This is an example configuration value");
 
-	@SubscribeEvent
-	public void onConfigurationChanged(ConfigChangedEvent.OnConfigChangedEvent event)
-	{
-		if (event.modID.equals(Reference.MOD_ID))
-		{
-			loadConfiguration();
-		}
-	}
+        if (configuration.hasChanged())
+        {
+            configuration.save();
+        }
+    }
 
-	public void loadConfiguration()
-	{
-		exampleConfigValue = configuration.getBoolean("exampleConfig", configuration.CATEGORY_GENERAL, true, "This is an example config file");
-
-		if (configuration.hasChanged())
-		{
-			configuration.save();
-			LogHelper.info("Configuration letsmodreboot saved");
-		}
-	}
+    @SubscribeEvent
+    public void onConfigurationChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event)
+    {
+        if (event.modID.equalsIgnoreCase(Reference.MOD_ID))
+        {
+            loadConfiguration();
+        }
+    }
 }
