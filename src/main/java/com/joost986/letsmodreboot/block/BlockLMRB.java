@@ -1,5 +1,6 @@
 package com.joost986.letsmodreboot.block;
 
+import com.joost986.letsmodreboot.creativetab.CreativeTabLMRB;
 import com.joost986.letsmodreboot.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -12,13 +13,13 @@ public class BlockLMRB extends Block
 	public BlockLMRB(Material material)
 	{
 		super(material);
+		this.setCreativeTab(CreativeTabLMRB.LMRB_TAB);
 	}
 
 	public BlockLMRB()
 	{
 		this(Material.rock);
 	}
-
 
 	@Override
 	public String getUnlocalizedName()

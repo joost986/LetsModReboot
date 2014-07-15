@@ -2,6 +2,7 @@ package com.joost986.letsmodreboot.init;
 
 import com.joost986.letsmodreboot.item.ItemLMRB;
 import com.joost986.letsmodreboot.item.ItemMapleLeaf;
+import com.joost986.letsmodreboot.reference.Names;
 import com.joost986.letsmodreboot.reference.Reference;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -12,6 +13,6 @@ public class ModItems
 
     public static void init()
     {
-        GameRegistry.registerItem(mapleLeaf, "mapleLeaf");
+        GameRegistry.registerItem(mapleLeaf, Names.Items.MAPLE_LEAF);
     }
 }
