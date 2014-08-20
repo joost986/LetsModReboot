@@ -3,6 +3,7 @@ package com.joost986.letsmodreboot;
 import com.joost986.letsmodreboot.handler.ConfigurationHandler;
 import com.joost986.letsmodreboot.init.ModBlocks;
 import com.joost986.letsmodreboot.init.ModItems;
+import com.joost986.letsmodreboot.init.Recipes;
 import com.joost986.letsmodreboot.proxy.IProxy;
 import com.joost986.letsmodreboot.reference.Reference;
 import com.joost986.letsmodreboot.utility.LogHelper;
@@ -38,7 +39,7 @@ public class LetsModReboot
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-
+		Recipes.init();
 		LogHelper.info("Initialization Complete!");
     }
 
